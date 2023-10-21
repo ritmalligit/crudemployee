@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <form method="POST" action="/update/{{employee.id}}">
+        {% csrf_token %}
+        <div>
+            <br>
+            <h3>Update Details</h3>
+        </div>
+
+        <div>
+            <p>Employee First Name:</p>
+            <div>
+                <input type="text" name="efirst_name" value="{{employee.efirst_name}}" />
+            </div>
+            <!-- Custom styling for error messages -->
+            {% if form.efirst_name.errors %}
+                <div class="custom-error">{{ form.efirst_name.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div>
+            <p>Employee Last Name:</p>
+            <div>
+                <input type="text" name="elast_name" value="{{employee.elast_name}}" />
+            </div>
+            <!-- Custom styling for error messages -->
+            {% if form.elast_name.errors %}
+                <div class="custom-error">{{ form.elast_name.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div>
+            <p>Employee Id:</p>
+            <div>
+                <input type="text" name="eid" value="{{employee.eid}}" />
+            </div>
+            <!-- Custom styling for error messages -->
+            {% if form.eid.errors %}
+                <div class="custom-error">{{ form.eid.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div>
+            <p>Employee Email:</p>
+            <div>
+                <input type="email" name="eemail" value="{{employee.eemail}}" />
+            </div>
+            <!-- Custom styling for error messages -->
+            {% if form.eemail.errors %}
+                <div class="custom-error">{{ form.eemail.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div>
+            <p>Employee Contact:</p>
+            <div>
+                <input type="text" name="econtact" value="{{employee.econtact}}" />
+            </div>
+            <!-- Custom styling for error messages -->
+            {% if form.econtact.errors %}
+                <div class="custom-error">{{ form.econtact.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div>
+            <br>
+            <button type="submit">Update</button>
+        </div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <form method="POST" action="/emp">
+        {% csrf_token %}
+        <div>
+            <br>
+            <p>
+                <h3>Enter Employee Details</h3>
+            </p>
+
+            <!-- <div>
+                <p>First Name</p>{{ form.efirst_name }}
+            </div> -->
+            
+            <div>
+                <p>Employee First Name</p>
+                {{ form.efirst_name }}
+                {% if form.efirst_name.errors %}
+                    <div class="error" style="color: red;">{{ form.efirst_name.errors }}</div>
+                {% endif %}
+            </div>
+
+            <!-- <div>
+                <p>Last Name:</p>{{ form.elast_name }}
+            </div> -->
+
+            <div>
+                <p>Employee Last Name</p>
+                {{ form.elast_name }}
+                {% if form.elast_name.errors %}
+                    <div class="error" style="color: red;">{{ form.elast_name.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div>
+                <p>Employee ID:</p>
+                {{ form.eid }}
+                {% if form.eid.errors %}
+                    <div class="error" style="color: red;">{{ form.eid.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div>
+                <p>Employee Email:</p>
+                {{ form.eemail }}
+                {% if form.eemail.errors %}
+                    <div class="error" style="color: red;">{{ form.eemail.errors }}</div>
+                {% endif %}
+            </div>
+            <div>
+                <p>Employee contact:</p>
+                {{ form.econtact }}
+                {% if form.econtact.errors %}
+                    <div class="error" style="color: red;">{{ form.econtact.errors }}</div>
+                {% endif %}
+            </div>
+
+            <!-- <div>
+                <p>Employee contact:</p>{{ form.econtact }}
+            </div> -->
+            <div>
+                <br>
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

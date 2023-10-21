@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Record</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Employee First Name</th>
+                <th>Employee Last Name</th>
+                <th>Employee ID</th>
+                <th>Employee Email</th>
+                <th>Employee Contact</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.efirst_name }}</td>
+                <td>{{ employee.elast_name }}</td>
+                <td>{{ employee.eid }}</td>
+                <td>{{employee.eemail}}</td>
+                <td>{{employee.econtact}}</td>
+                <td>
+                    <a href="/edit/{{ employee.id }}">Edit</a>
+                    <a href="/delete/{{employee.id}}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <button><a style="color:white;" href="/emp">Add New Record</a></button>
+</body>
+
+</html>
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Record</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Employee FIRST NAME</th>
+                <th>Employee LAST NAME</th>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Employee Email</th>
+                <th>Employee Contact</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.first_name }}</td>
+                <td>{{ employee.last_name }}</td>
+
+                <td>{{ employee.eid }}</td>
+                <td>{{employee.ename}}</td>
+                <td>{{employee.eemail}}</td>
+                <td>{{employee.econtact}}</td>
+                <td>
+                    <a href="/edit/{{ employee.id }}">Edit</a>
+                    <a href="/delete/{{employee.id}}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <button><a style="color:white;" href="/emp">Add New Record</a></button>
+</body>
+
+</html> -->
